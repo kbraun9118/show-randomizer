@@ -30,9 +30,4 @@
 }
 </style>
 <script>
-import ShowCard from '@/views/ShowCard';
-
-export default {
-  components: { ShowCard },
-};
 </script>
