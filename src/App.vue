@@ -1,11 +1,17 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/about">About</router-link>
+  <div class="wrapper">
+    <router-link to="/" class="router"><h2>Show Randomizer</h2></router-link>
+    <router-view/>
   </div>
-  <router-view/>
 </template>
+
+<script setup lang="ts">
+
+import { provide, ref } from 'vue';
+import { TVMazeResponse } from '@/models/models';
+
+provide('shows', ref<TVMazeResponse[]>([]));
+</script>
 
 <style>
 #app {
@@ -15,19 +21,17 @@
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
+</style>
+<style scoped>
+@media (min-width: 1200px) {
+  .wrapper {
+    width: 1200px;
+    margin: auto;
+  }
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.router {
+  color: inherit;
+  text-decoration: unset;
 }
 </style>
-<script>
-</script>

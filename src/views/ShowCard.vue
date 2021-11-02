@@ -1,6 +1,7 @@
 <template>
-  <router-link :to="`/show/${show.id}`">
-    <img :src="show.image.medium" alt="Not found"/>
+  <router-link :to="`/show/${props?.show?.id}`">
+    <img :src="props?.show?.image?.medium" alt="Not found"/>
+    <p>{{show.name}}</p>
   </router-link>
 </template>
 
@@ -12,9 +13,17 @@ const props = defineProps<{
   show: Show
 }>();
 
-console.log(props.show);
 </script>
 
 <style scoped>
+a {
+  display: inline-block;
+  width: 210px;
+  text-decoration: unset;
+  color: inherit;
+}
 
+p {
+  margin-top: 0.25rem;
+}
 </style>
