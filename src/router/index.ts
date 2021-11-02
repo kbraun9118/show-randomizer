@@ -13,6 +13,10 @@ const routes: Array<RouteRecordRaw> = [
     name: 'EpisodeRandomizer',
     component: EpisodeRandomizer,
   },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
+  },
 ];
 
 const router = createRouter({
