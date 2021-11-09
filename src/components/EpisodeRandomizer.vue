@@ -46,7 +46,8 @@ onMounted(async () => {
 });
 onMounted(async () => {
   const response = await fetch(`https://api.tvmaze.com/shows/${route.params.id}/episodes`);
-  episodes.value = await response.json();
+  episodes.value = (await response.json() as Episode[])
+    .filter((episode) => new Date(episode.airstamp) < new Date());
 });
 
 const randomize = () => {
